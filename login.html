@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="login.css">
+    <title>Homies Cars | Connexion</title>
+</head>
+<body>
+ <nav class="hc-navbar">
+    <div class="hc-nav-container">
+        <div class="hc-logo"><img src="11.png" alt="Homies Cars"></div>
+        <ul class="hc-nav-links">
+            <li><a href="homies_cars.php">Accueil</a></li>
+            <li><a href="vehicules.php">Véhicules</a></li>
+            <li><a href="reservation1.php">Réservation</a></li>
+            <li><a href="login.html" class="hc-active">Se connecter</a></li>
+            <li><a href="contact.html">Aide</a></li>
+        </ul>
+    </div>
+ </nav>
+ <div class="wrapper">
+
+    <div id="form-alert" class="hc-alert"></div>
+
+<!----------------------------- Form box ----------------------------------->    
+    <div class="form-box">
+        
+        <!------------------- login form -------------------------->
+        <div class="login-container" id="login">
+            <div class="top">
+                <span>vous n'avez pas de compte? <a href="#" onclick="register()">S'inscrire</a></span>
+                <header>Se connecter</header>
+            </div>
+            <form action="auth.php" method="post">
+                <input type="hidden" name="next" id="login-next" value="">
+                <div class="input-box">
+                    <input type="text" class="input-field" name="username_email" placeholder="Username or Email" required>
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field" name="password" placeholder="Password" required>
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" name="login-submit" value="Sign In">
+                </div>
+                <div class="two-col">
+                    <div class="one">
+                        <input type="checkbox" id="login-check">
+                        <label for="login-check"> Souviens de moi</label>
+                    </div>
+                    <div class="two">
+                        <label><a href="#">mot de passe oublier?</a></label>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!------------------- registration form -------------------------->
+        <div class="register-container" id="register">
+            <div class="top">
+                <span>Avez-vous un compte ?<a href="#" onclick="login()">se connecter</a></span>
+                <header>S'inscrire</header>
+            </div>
+            <form action="auth.php" method="post">
+                <input type="hidden" name="next" id="register-next" value="">
+                <div class="two-forms">
+                    <div class="input-box">
+                        <input type="text" class="input-field" name="firstname" placeholder="Firstname" required>
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" name="lastname" placeholder="Lastname" required>
+                        <i class="bx bx-user"></i>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <input type="email" class="input-field" name="email" placeholder="Email" required>
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field" name="password" placeholder="Password" required minlength="6">
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" name="register-submit" value="Register">
+                </div>
+                <div class="two-col">
+                    <div class="one">
+                        <input type="checkbox" id="register-check">
+                        <label for="register-check"> Souviens de moi</label>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>   
+<script>
+   // Relaie ?next=... vers les champs cachés des formulaires, pour
+   // ramener l'utilisateur à sa réservation en cours après connexion.
+   // Relaie aussi les messages d'erreur/succès renvoyés par auth.php.
+   (function () {
+       var params = new URLSearchParams(window.location.search);
+       var next = params.get("next") || "";
+       document.getElementById("login-next").value = next;
+       document.getElementById("register-next").value = next;
+
+       var messages = {
+           invalidcredentials: "Identifiants incorrects. Veuillez réessayer.",
+           emptyfields: "Merci de remplir tous les champs.",
+           invalidemail: "Adresse email invalide.",
+           emailexists: "Un compte existe déjà avec cet email.",
+           passwordtooshort: "Le mot de passe doit contenir au moins 6 caractères.",
+           registerfailed: "L'inscription a échoué. Veuillez réessayer.",
+           loginrequired: "Merci de vous connecter pour réserver un véhicule.",
+           accountcreated: "Compte créé avec succès ! Vous pouvez vous connecter."
+       };
+       var box = document.getElementById("form-alert");
+       if (params.get("error") && messages[params.get("error")]) {
+           box.textContent = messages[params.get("error")];
+           box.classList.add("hc-alert-error");
+           box.style.display = "block";
+       } else if (params.get("success") && messages[params.get("success")]) {
+           box.textContent = messages[params.get("success")];
+           box.classList.add("hc-alert-success");
+           box.style.display = "block";
+       }
+   })();
+
+   function myMenuFunction() {
+    var i = document.getElementById("navMenu");
+    if(i.className === "nav-menu") {
+        i.className += " responsive";
+    } else {
+        i.className = "nav-menu";
+    }
+   }
+ 
+</script>
+<script>
+    var a = document.getElementById("loginBtn");
+    var b = document.getElementById("registerBtn");
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    function login() {
+        x.style.left = "4px";
+        y.style.right = "-520px";
+        if (a) a.className += " white-btn";
+        if (b) b.className = "btn";
+        x.style.opacity = 1;
+        y.style.opacity = 0;
+    }
+    function register() {
+        x.style.left = "-510px";
+        y.style.right = "5px";
+        if (a) a.className = "btn";
+        if (b) b.className += " white-btn";
+        x.style.opacity = 0;
+        y.style.opacity = 1;
+    }
+</script>
+</body>
+</html>

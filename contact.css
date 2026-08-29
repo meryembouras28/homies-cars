@@ -1,0 +1,118 @@
+html, body {
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  background-color:#fff;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-weight: 400;
+  color: #ffcc00;
+}
+
+
+
+.main-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #000, #333);
+}
+
+form {
+  padding: 30px;
+  margin: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  background: #333;
+  max-width: 600px;
+}
+
+.fas {
+  margin: 20px 0;
+  font-size: 60px;
+  color: #ffcc00;
+}
+
+input, textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 2px solid #ffcc00;
+  background: #333;
+  color: #fff;
+  outline: none;
+}
+
+input::placeholder {
+  color: #666;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background: #ffcc00;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #ffa500;
+}
+
+@media (min-width: 768px) {
+  .main-block {
+    flex-direction: row;
+  }
+
+  .left-part, form {
+    width: 50%;
+  }
+
+  .fa-envelope {
+    margin-top: -20px;
+    margin-left: 20%;
+  }
+
+  .fa-at {
+    margin-top: 10px;
+    margin-left: 70%;
+  }
+
+  .fa-mail-bulk {
+    margin-top: 20px;
+    margin-left: 30%;
+  }
+}
+
+
+
+button {
+  width: 200px;
+  padding: 15px;
+  border: none;
+  border-radius: 25px;
+  background: #FFD700; /* Fond couleur or */
+  font-size: 18px;
+  font-weight: bold;
+  color: #000; /* Couleur du texte en noir */
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s, background 0.3s;
+}

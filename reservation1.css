@@ -1,0 +1,63 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body,html{
+    height: 100%;
+    margin: 0;
+    font-family: 'poppins',sans-serif;
+    
+}
+.background{
+    background-image: url('voit.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.booking-form{
+    background-color: rgba(000,000,000,0.7);
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 500px;
+    width:780%;
+    margin: 0 auto;
+}
+.booking-form h2{
+    text-align: center;
+    color: #D8DEE3;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: xx-large;
+    font-style: oblique;
+}
+.booking-form form{
+    display: flex;
+    flex-direction: column;
+    color: #D8DEE3;
+}
+.booking-form input{
+    padding: 15px;
+    border: 1px solid #D8DEE3;
+    border-radius: 5px;
+}
+.booking-form select{
+    padding: 15px;
+    border: 1px solid #D8DEE3;
+    border-radius: 5px;
+    background : white;
+    
+}
+.booking-form button{
+    margin-top:15px;
+    padding: 15px;
+    background-color: #FFD700;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+.booking-form button:hover{
+    background-color: #FFD700;
+}

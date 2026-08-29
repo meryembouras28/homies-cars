@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Homies Cars | Aide &amp; Contact</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="contact.css">
+  </head>
+  <body>
+    <nav class="hc-navbar">
+      <div class="hc-nav-container">
+        <div class="hc-logo"><img src="11.png" alt="Homies Cars"></div>
+        <ul class="hc-nav-links">
+          <li><a href="homies_cars.php">Accueil</a></li>
+          <li><a href="vehicules.php">Véhicules</a></li>
+          <li><a href="reservation1.php">Réservation</a></li>
+          <li><a href="login.html">Se connecter</a></li>
+          <li><a href="contact.html" class="hc-active">Aide</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="main-block">
+      <div class="left-part">
+        <i class="fas fa-envelope"></i>
+        <i class="fas fa-at"></i>
+        <i class="fas fa-mail-bulk"></i>
+      </div>
+      <form action="contact.php" method="POST">
+        <h1>Contactez Nous!</h1>
+        <div id="contact-alert" class="hc-alert"></div>
+        <div class="info">
+          <input class="fname" type="text" name="nom" placeholder="Nom Complet" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="tel" name="tel" placeholder="Numéro de telephone" required>
+          <input type="text" name="probleme" placeholder="Type de probléme" required>
+          
+        </div>
+       
+        <button type="submit" >Envoyer</button>
+      </form>
+    </div>
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var box = document.getElementById("contact-alert");
+        if (params.get("sent") === "1") {
+          box.textContent = "Votre message a bien été envoyé, merci !";
+          box.classList.add("hc-alert-success");
+          box.style.display = "block";
+        } else if (params.get("error") === "1") {
+          box.textContent = "Merci de remplir tous les champs correctement.";
+          box.classList.add("hc-alert-error");
+          box.style.display = "block";
+        }
+      })();
+    </script>
+  </body>
+</html>
